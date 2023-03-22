@@ -11,6 +11,7 @@ export const Loader = () => {
     intervalRef.current = null;
     setIsRunning(false);
   };
+
   const handleStart = () => {
     intervalRef.current = setInterval(() => {
       setProgress((prevProgress) => {
@@ -24,6 +25,7 @@ export const Loader = () => {
     }, 50);
     setIsRunning(true);
   };
+
   const handleOnClick = () => isRunning ? handleStop() : handleStart();
 
   useEffect(() => {
@@ -36,10 +38,10 @@ export const Loader = () => {
   return (
     <div className='container'>
       <h1>Loading...</h1>
-      <div className='progress-bar'>
+      <main className='progress-bar'>
         <div className='progress' style={{ width: `${progress}%` }} />
         <div className='indicator'>{`${progress}%`}</div>
-      </div>
+      </main>
       <button className='start-stop-button' onClick={handleOnClick}>
         {isRunning ? 'Stop' : 'Start'}
       </button>
